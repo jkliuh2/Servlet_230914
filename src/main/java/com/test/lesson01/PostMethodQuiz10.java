@@ -34,6 +34,7 @@ public class PostMethodQuiz10 extends HttpServlet {
 		}
 	}
 	
+	// 주석 추가
 	
 	// doPost 메소드 바깥쪽에 위치
 	private final Map<String, String> userMap =  new HashMap<String, String>() {

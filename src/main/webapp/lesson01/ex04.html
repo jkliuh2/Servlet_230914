@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>회원가입</title>
+		
+		<!-- 부트스트랩CDN주소 -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>회원 정보 입력</h1>
+			
+			<!-- 폼태그 3종세트 : form, name 속성, submit 버튼 -->
+			
+			<!-- input을 감싸는 form태그를 만들 것이다. -->			
+			<form method="get" action="/lesson01/ex04">
+			<!-- method: GET방식으로 request method를 정했다. -->
+			<!-- action뒤에 ?이후로 안쳐도 submit 버튼을 누르면 알아서 쿼리스트링이 작성된다. -->
+				
+				<div class="form-group">
+					<label>
+						아이디
+						<input type="text" class="form-control" name="userId" placeholder="아이디를 입력하세요">
+						<!-- name속성의 값이 key-value의 key가 된다. -->
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						이름
+						<input type="text" class="form-control" name="name" placeholder="이름을 입력하세요">
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						생년월일
+						<input type="text" class="form-control" name="birth" placeholder="예) 19991109">
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						이메일 주소
+						<input type="text" class="form-control" name="email" placeholder="이메일 주소를 입력하세요">
+					</label>
+				</div>
+				
+				<!-- submit 버튼은 form 안쪽에!!!!!!!!! -->
+				<button type="submit" class="btn btn-info">가입하기</button>
+			</form>
+		</div>
+	</body>
+</html>

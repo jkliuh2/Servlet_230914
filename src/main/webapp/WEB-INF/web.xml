@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Test</display-name>
+  
+  <!-- ex01 -->
+  <servlet>
+  	<servlet-name>UrlMappingEx01</servlet-name> <!-- 단순한 이름 -->
+  	<servlet-class>com.test.lesson01.UrlMappingEx01</servlet-class> <!-- 실행 클래스에 대한 주소 -->
+  	<!-- 잘 썼는지 확인 -> ctrl 누른 상태로 마우스 올리면 밑줄이 나와야 한다. -->
+  	
+  </servlet>
+  	
+  <servlet-mapping>
+  	<servlet-name>UrlMappingEx01</servlet-name>
+	<url-pattern>/lesson01/ex01</url-pattern> <!-- url주소. 항상 /로 시작. -->
+  </servlet-mapping>
+  
+  
+  
+  <!-- quiz01, 02(url다르게) 오늘 날짜 출력 -->
+  <servlet>
+  	<servlet-name>UrlMappingQuiz01</servlet-name>
+  	<servlet-class>com.test.lesson01.UrlMappingQuiz01</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UrlMappingQuiz01</servlet-name>
+  	<url-pattern>/lesson01/quiz01</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- 한글 깨짐을 방지하기 위한 필터 추가 -->
+  <!-- <filter> 
+  	<filter-name>CharacterEncodingFilter</filter-name>
+  	<filter-class>com.test.filter.CharacterEncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>CharacterEncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  	 -->
+  	<!-- 모든 주소 /* => 어느 주소로 들어오던 간에 전부 필터를 거치게 한다. -->
+  <!-- </filter-mapping>  -->
+  	
+</web-app>

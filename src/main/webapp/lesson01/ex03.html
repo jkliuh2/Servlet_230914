@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<!-- http://localhost/lesson01/ex03.html  해당 html파일에 대한 주소값. -->
+	
+<body>
+	<h1>Ex03</h1>
+	<p>
+		<!-- Servlet으로의 링크 -->
+		<a href="/lesson01/ex03">링크 태그</a>
+		<!-- 나의 서버로의 링크라서 이정도면 된다. /가 없으면 상대경로로 잡힌다. 꼭 / 넣도록 하자. -->
+	</p>
+	<p>
+		<!-- 아이디 정보(user_id = jkliuh2) 넘기겠다. -->
+		<!-- 쿼리스트링을 넘김.(서블릿에 key-value 정보를 넘김) -->
+		<a href="/lesson01/ex03?user_id=jkliuh2">아이디를 넘깁니다.</a>
+	</p>
+	<p>
+		<!-- 아이디, 이름 두 가지 쿼리스트링을 넘김. & 으로 구분 가능. -->
+		<a href="/lesson01/ex03?user_id=jkliuh2&name=서동옥">아이디와 이름을 넘깁니다.</a>
+	</p>
+	<p>
+		<!-- 아이디, 이름, 나이 -->
+		<a href="/lesson01/ex03?user_id=jkliuh2&name=서동옥&age=31">아이디와 이름과 나이를 넘깁니다.</a>
+	</p>
+</body>
+</html>

@@ -42,12 +42,31 @@ public class GetMethodQuiz08 extends HttpServlet {
 		
 		while (iter.hasNext()) {
 			String sentence = iter.next();
-			if (sentence.contains(search)) { // 문장 안에 키워드가 포함되어있는가
+			
+			
+			
+//			if (sentence.contains(search)) { // 문장 안에 키워드가 포함되어있는가
+//				out.print(sentence + "<br>");
+//			} // 이건 그냥 bold 처리 안하고 출력하는 것.
 				
-				// 검색어에 대해 bold 처리.
-				sentence = sentence.replace(search, ("<b>" + search + "</b>"));
-				
+			
+			// bold처리하기
+			// 1) split()
+//			if (sentence.contains(search)) {
+//				// split()이용. 아예 키워드를 기준으로 앞 뒤로 자른다.
+//				// 그 다음, 앞 뒤에 <b></b> 넣어준다.
+//				// 키워드가 하나만 있다고 가정
+//				
+//				String[] words = sentence.split(search); // 0-앞문장, 1-뒷문장 
+//				out.print(words[0] + "<b>" + search + "</b>" + words[1] + "<br>");
+//			}
+			
+			// 2) 키워드 교체. replace()
+			if (sentence.contains(search)) {
+				// 키워드를 앞 뒤에 <b></b>를 붙인 것으로 교체
+				sentence = sentence.replace(search, "<b>" + search + "</b>");
 				out.print(sentence + "<br>");
+				// 간단한 방식
 			}
 		}
 		

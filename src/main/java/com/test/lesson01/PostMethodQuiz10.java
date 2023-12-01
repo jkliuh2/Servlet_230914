@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 public class PostMethodQuiz10 extends HttpServlet {
 
 	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void doPost(HttpServletRequest request, 
+			HttpServletResponse response) throws IOException {
 		response.setContentType("text/html");
 		
 		// request para
@@ -24,6 +25,8 @@ public class PostMethodQuiz10 extends HttpServlet {
 		// 출력
 		PrintWriter out = response.getWriter();
 		
+		out.print("<html><head><title>정보 확인</title></head><body>");
+		
 		// 일치하는가 확인하기
 		if (userMap.get("id").equals(id) == false) { // id 불일치
 			out.print("id가 일치하지 않습니다.");
@@ -32,11 +35,10 @@ public class PostMethodQuiz10 extends HttpServlet {
 		} else {
 			out.print(userMap.get("name") + "님 환영합니다!");
 		}
+		
+		out.print("</body></html");
 	}
 	
-	// 주석 추가
-	// 주석 추가 2
-	// 스태시
 	
 	// doPost 메소드 바깥쪽에 위치
 	private final Map<String, String> userMap =  new HashMap<String, String>() {

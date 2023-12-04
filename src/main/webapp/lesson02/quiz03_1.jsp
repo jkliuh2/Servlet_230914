@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Quiz02</title>
+		<title>BMI 계산</title>
 		
 		<!-- 부트스트랩CDN -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -14,15 +14,32 @@
 		crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-		crossorigin="anonymous"></script>		
+		crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<!-- 날짜, 시간 출력
-a 태그를 이용하여 링크를 만드세요.
-링크 클릭 시 날짜 또는 시간을 보여주기 위한 jsp 페이지로 이동하세요. -->
-		<h1>날짜, 시간 링크</h1>
-		<a href="/lesson02/quiz02_1.jsp?type=time" class="btn btn-info">현재 시간 확인</a>
-		<a href="/lesson02/quiz02_1.jsp?type=date" class="btn btn-success">현재 날짜 확인</a>
-		<!-- 같은 key, 다른 value가 담긴 버튼 <a> 두개. -->
+	<%
+		// request para
+		double height = Double.parseDouble(request.getParameter("height"));
+		double weight = Double.parseDouble(request.getParameter("weight"));
+		
+		// BMI =  몸무게 / ((키 / 100.0) * (키 / 100.0));
+		double bmi = weight / ((height / 100.0) * (height / 100.0));
+		
+		String result = null;
+		if (bmi > 31) {
+			result = "비만";
+		} else if (bmi > 26) {
+			result = "과체중";
+		} else if (bmi > 21) {
+			result = "정상";
+		} else {
+			result = "저체중";
+		}
+	%>
+		<div class="container">
+			<h1>BMI 측정 결과</h1>
+			<div class="display-4">당신은 <span class="text-info"><%= result %></span> 입니다.</div>
+			BMI 수치 : <%= bmi %>
+		</div>
 	</body>
 </html>

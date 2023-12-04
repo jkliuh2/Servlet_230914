@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Quiz02</title>
+		<title>Insert title here</title>
 		
 		<!-- 부트스트랩CDN -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -14,15 +14,22 @@
 		crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-		crossorigin="anonymous"></script>		
+		crossorigin="anonymous"></script>	
 	</head>
 	<body>
-		<!-- 날짜, 시간 출력
-a 태그를 이용하여 링크를 만드세요.
-링크 클릭 시 날짜 또는 시간을 보여주기 위한 jsp 페이지로 이동하세요. -->
-		<h1>날짜, 시간 링크</h1>
-		<a href="/lesson02/quiz02_1.jsp?type=time" class="btn btn-info">현재 시간 확인</a>
-		<a href="/lesson02/quiz02_1.jsp?type=date" class="btn btn-success">현재 날짜 확인</a>
-		<!-- 같은 key, 다른 value가 담긴 버튼 <a> 두개. -->
+		<div class="container">
+			<h1>사칙 연산 계산기</h1>
+			<form method="post" action="/lesson02/quiz05_1.jsp">
+				<input type="text" name="num1">
+				<select name="operation">
+					<option>+</option> <!-- value 지정 안하면 해당 값 그대로 들어간다. -->
+					<option>-</option>
+					<option>*</option>
+					<option>/</option>
+				</select>
+				<input type="text" name="num2">
+				<input type="submit" value="계산하기" class="btn btn-success">
+			</form>			
+		</div>
 	</body>
 </html>

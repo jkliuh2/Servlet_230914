@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Quiz02</title>
+		<title>체격 조건</title>
 		
 		<!-- 부트스트랩CDN -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -14,15 +14,24 @@
 		crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-		crossorigin="anonymous"></script>		
+		crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<!-- 날짜, 시간 출력
-a 태그를 이용하여 링크를 만드세요.
-링크 클릭 시 날짜 또는 시간을 보여주기 위한 jsp 페이지로 이동하세요. -->
-		<h1>날짜, 시간 링크</h1>
-		<a href="/lesson02/quiz02_1.jsp?type=time" class="btn btn-info">현재 시간 확인</a>
-		<a href="/lesson02/quiz02_1.jsp?type=date" class="btn btn-success">현재 날짜 확인</a>
-		<!-- 같은 key, 다른 value가 담긴 버튼 <a> 두개. -->
+		<div class="container">
+			<h1>체격 조건 입력</h1>
+			
+			<!-- form태그의 get방식 -->
+			<form method="get" action="/lesson02/quiz03_1.jsp">
+				<div class="d-flex align-items-end">
+					<input class="form-control col-4" type="text" name="height" placeholder="키를 입력하세요">
+					<div>cm</div>
+					
+					<input class="form-control col-4 ml-2" type="text" name="weight" placeholder="몸무게를 입력하세요">
+					<div>kg</div>
+					
+					<input type="submit" value="계산" class="btn btn-info ml-2">
+				</div>
+			</form>
+		</div>
 	</body>
 </html>

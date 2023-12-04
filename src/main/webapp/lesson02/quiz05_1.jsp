@@ -29,12 +29,18 @@
 			} else if (operation.equals("-")) {
 				result = num1 - num2;
 			} else if (operation.equals("*")) { // 곱하기는 무늬를 바꿔야 아래서 출력할 때 편함.
-				
+				result = num1 * num2;
+				operation = "X";
+			} else if (operation.equals("/")) {
+				result = (double)num1 / num2;
 			}
 		%>
 		<div class="container">
 			<h1>계산 결과</h1>
-			
+			<div class="display-4">
+				<%= num1 %> <%= operation %> <%= num2 %>
+				 = <span class="text-primary"><%= result %></span>
+			</div>
 		</div>
 	</body>
 </html>

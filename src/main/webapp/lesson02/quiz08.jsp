@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>퀴즈08</title>
 
 <!-- 부트스트랩CDN -->
 <link rel="stylesheet"
@@ -86,12 +86,13 @@
 				<%
 				for (int i = 0; i < list.size(); i++) {
 					map = list.get(i);
-					String href = "/lesson02/quiz08_1?id=" + map.get("id");
+					// map 변수 재사용.
+					String href = "/lesson02/quiz08_1.jsp?id=" + map.get("id");
 				%>
 				<tr>
 					<td><%= map.get("id") %></td>
 					<td><img src=<%= map.get("image") %> width="50px" alt="책 이미지"></td>
-					<td><a href=<%= href%>><%= map.get("title") %></a></td>
+					<td><a href=<%= href %>><%= map.get("title") %></a></td>
 				</tr>
 				<%
 				}

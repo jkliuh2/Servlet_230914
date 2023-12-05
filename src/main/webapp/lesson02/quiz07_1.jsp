@@ -115,24 +115,24 @@
 				<%
 				Iterator<Map<String, Object>> iter = list.iterator();
 				while (iter.hasNext()) {
-					map = iter.next();
+					Map<String, Object> food = iter.next();
 
 					// 4점 이하 체크시 작동하는 제어문
 					if (flag) { // 4점 이하 제외 체크되면
-						double point = (double) map.get("point");
+						double point = (double)food.get("point");
 						if (point <= 4) { // 4점 이하면?
 					continue; // 아래 모두 생략하고 반복분으로.
 						}
 					}
 
 					// 출력을 위한 if문
-					if (map.get("menu").equals(menu)) {
+					if (food.get("menu").equals(menu)) {
 						// iterator에서 뽑아낸 menu의 value가 검색한 menu와 일치할 때
 				%>
 				<tr>
-					<td><%=map.get("menu")%></td>
-					<td><%=map.get("name")%></td>
-					<td><%=map.get("point")%></td>
+					<td><%=food.get("menu")%></td>
+					<td><%=food.get("name")%></td>
+					<td><%=food.get("point")%></td>
 				</tr>
 				<%
 					} // menu if 문의 끝

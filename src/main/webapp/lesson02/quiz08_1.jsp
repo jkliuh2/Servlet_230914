@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>퀴즈08 교보문고</title>
 
 <!-- 부트스트랩CDN -->
 <link rel="stylesheet"
@@ -75,11 +75,27 @@
     // request parameter
     int id = Integer.parseInt(request.getParameter("id"));
     
-    Iterator<Map<String, Object>> iter = list.iterator();
+    Map<String, Object> book = null; // 선택된 책 담길 변수
     
+    Iterator<Map<String, Object>> iter = list.iterator();
     while (iter.hasNext()) {
-    	
+    	book = iter.next();
+    	int bookId = (int)book.get("id");
+    	if (bookId == id) { // id가 일치할 경우
+    		break; // 반복문 탈출. book에 해당 책 정보 Map 담겨있는 상태.
+    	}
     }
 	%>
+	
+	<div class="container d-flex">
+		<div>
+			<img src=<%= book.get("image") %> alt="책 그림">
+		</div>
+		<div class="ml-3">
+			<div class="display-2 font-weight-bold"><%= book.get("title") %></div>
+			<div class="display-3 text-info"><%= book.get("author") %></div>
+			<div class="display-4 text-secondary"><%= book.get("publisher") %></div>
+		</div>
+	</div>
 </body>
 </html>

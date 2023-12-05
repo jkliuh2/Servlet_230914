@@ -26,25 +26,29 @@
 			<h1>길이 변환 결과</h1>
 			<h3><%= cm %>cm</h3>
 			<hr>
+			
+			<h2>
 			<%
-				String result = "";
 				if (lengthTypeArr != null) { // null이 아닐 경우.
 					for (String type : lengthTypeArr) {
-						String conversion = "";
+						double conversion = 0;
 						if (type.equals("inch")) {
-							conversion = cm / 2.54 + " in";
+							conversion = cm / 2.54;
+							out.print(conversion + " in<br>");
 						} else if (type.equals("yard")) {
-							conversion = cm / 91.44 + " yd";
+							conversion = cm / 91.44;
+							out.print(conversion + " yd<br>");
 						} else if (type.equals("feet")) {
-							conversion = cm / 30.48 + " ft";
+							conversion = cm / 30.48;
+							out.print(conversion + " ft<br>");
 						} else if (type.equals("meter")) {
-							conversion = cm / 100 + " m";
+							conversion = cm / 100;
+							out.print(conversion + " m<br>");
 						}
-						result += "<h2>" + conversion + "</h2><br>";
 					}
-				out.print(result);
 				}
 			%>
+			</h2>
 		</div>
 	</body>
 </html>

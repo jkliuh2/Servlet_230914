@@ -88,17 +88,10 @@
 
 	// request para
 	String menu = request.getParameter("menu"); // 검색 메뉴
-	
-	boolean flag = false;
-	flag = Boolean.parseBoolean(request.getParameter("point4")); // 체크박스 표시
-	// point4가 true면 true, 그 외(null포함)면 false.
-
-	/*
-	boolean flag = false;
-	if (point4 != null) { // point4 체크박스가 체크되면 flag -> true
-		flag = true;
-	}
-	*/
+	String point4 = request.getParameter("point4"); // 체크박스 표시
+	// flag = Boolean.parseBoolean(request.getParameter("point4")); 
+	boolean flag = (point4 != null);
+	// point4가 null이 아니면(체크되면) true. / null이면 false
 	%>
 
 	<div class="container">
@@ -117,17 +110,17 @@
 				while (iter.hasNext()) {
 					Map<String, Object> food = iter.next();
 
-					// 4점 이하 체크시 작동하는 제어문
-					if (flag) { // 4점 이하 제외 체크되면
-						double point = (double)food.get("point");
-						if (point <= 4) { // 4점 이하면?
-					continue; // 아래 모두 생략하고 반복분으로.
-						}
-					}
-
 					// 출력을 위한 if문
 					if (food.get("menu").equals(menu)) {
 						// iterator에서 뽑아낸 menu의 value가 검색한 menu와 일치할 때
+
+						// 4점 이하 체크시 작동하는 제어문
+						if (flag && (double)food.get("point") <= 4.0) { 
+							// 4점 이하 제외 체크 + point가 4점 이하
+							// point가 Object 이기 때문에, 원래의 double로 캐스팅 해줘야 한다.
+							
+							continue; // 아래 코드들 생략하고 반복분으로.
+						}
 				%>
 				<tr>
 					<td><%=food.get("menu")%></td>

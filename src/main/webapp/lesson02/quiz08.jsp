@@ -87,12 +87,17 @@
 				for (int i = 0; i < list.size(); i++) {
 					map = list.get(i);
 					// map 변수 재사용.
-					String href = "/lesson02/quiz08_1.jsp?id=" + map.get("id");
 				%>
 				<tr>
 					<td><%= map.get("id") %></td>
-					<td><img src=<%= map.get("image") %> width="50px" alt="책 이미지"></td>
-					<td><a href=<%= href %>><%= map.get("title") %></a></td>
+					<td>
+						<img src="<%= map.get("image") %>" width="50" alt="책 표지">
+					</td>
+					<td>
+						<a href="/lesson02/quiz08_1.jsp?id=<%= map.get("id") %>"><%= map.get("title") %></a>
+						<!-- <a>의 링크에 필요한 정보를 표현식으로 넣는다. -->
+						<!-- get 방식으로 보낼 때는 너무 긴 데이터는 곤란하다. 그래서 id 정보만 보낸다. -->
+					</td>
 				</tr>
 				<%
 				}

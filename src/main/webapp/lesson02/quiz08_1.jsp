@@ -75,21 +75,21 @@
     // request parameter
     int id = Integer.parseInt(request.getParameter("id"));
     
-    Map<String, Object> book = null; // 선택된 책 담길 변수
+    Map<String, Object> book = new HashMap<>(); // 결과로 보여줄 책 정보가 담는 곳
     
     Iterator<Map<String, Object>> iter = list.iterator();
     while (iter.hasNext()) {
-    	book = iter.next();
-    	int bookId = (int)book.get("id");
-    	if (bookId == id) { // id가 일치할 경우
-    		break; // 반복문 탈출. book에 해당 책 정보 Map 담겨있는 상태.
+    	book = iter.next(); // 일단 book에 지금 보는 Map을 담자.
+    	
+    	if (id == (int)book.get("id")) { // book의 id가 일치할 경우
+    		break; // 반복문 탈출. => book에 해당 책 정보 Map 담겨있는 상태.
     	}
     }
 	%>
 	
 	<div class="container d-flex">
 		<div>
-			<img src=<%= book.get("image") %> alt="책 그림">
+			<img src="<%= book.get("image") %>" alt="책 표지">
 		</div>
 		<div class="ml-3">
 			<div class="display-2 font-weight-bold"><%= book.get("title") %></div>

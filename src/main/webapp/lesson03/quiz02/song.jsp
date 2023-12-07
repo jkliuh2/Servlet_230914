@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>채널 안내</title>
+<title>곡 정보</title>
 
 <!-- 부트스트랩 -->
 <link rel="stylesheet"
@@ -19,27 +19,26 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
 	crossorigin="anonymous"></script>
-	
+</head>
+
 <!-- 내부 스타일시트 -->
 <style>
-	header {height:80px}
-	nav {height:50px}
-	.contents {min-height: 200px}
-	footer {height:50px}
+	header {height:100px;}
+	.content {min-height:500px;}
+	footer {height:80px;}
 </style>
-</head>
 <body>
 	<div id="wrap" class="container">
-		<header class="d-flex justify-content-center align-items-center">
+		<header class="d-flex align-items-center">
 			<jsp:include page="header.jsp" />
 		</header>
-		<nav class="bg-danger d-flex align-items-center">
+		<nav>
 			<jsp:include page="nav.jsp" />
 		</nav>
-		<section class="contents">
-			<jsp:include page="content1.jsp" />
+		<section class="content py-4">
+			<jsp:include page="songInfo.jsp" />
 		</section>
-		<footer class="d-flex justify-content-center align-items-center">
+		<footer>
 			<jsp:include page="footer.jsp" />
 		</footer>
 	</div>

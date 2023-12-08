@@ -26,6 +26,8 @@
 	header {height:100px;}
 	.content {min-height:500px;}
 	footer {height:80px;}
+	
+	.music-info {font-size:14px; color:#999;}
 </style>
 <body>
 	<div id="wrap" class="container">

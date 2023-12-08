@@ -82,9 +82,11 @@
 %>
 
 <%-- 가수 정보 --%>
-<div class="d-flex">
+<div class="d-flex border border-success p-3">
 	<div>
-		<img src="<%= artistInfo.get("photo") %>" alt="아이유 사진" width="200">
+		<img 
+			src="<%= artistInfo.get("photo") %>" 
+			alt="아이유 사진" width="200">
 	</div>
 	<div class="ml-3">
 		<h3 class="font-weight-bold"><%= artistInfo.get("name") %></h3>
@@ -110,7 +112,7 @@
 			%>
 			<tr>
 				<td><%= songInfo.get("id") %></td>
-				<td><a href="song.jsp?title=<%= songInfo.get("title") %>"><%= songInfo.get("title") %></a></td>
+				<td><a href="song.jsp?id=<%= songInfo.get("id") %>"><%= songInfo.get("title") %></a></td>
 				<td><%= songInfo.get("album") %></td>
 			</tr>
 			<%

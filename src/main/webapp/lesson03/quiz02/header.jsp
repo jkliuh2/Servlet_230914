@@ -6,7 +6,7 @@
 	</h3>
 </div>
 <div class="col-10">
-	<form method="get" action="song.jsp">
+	<form method="get" action="/lesson03/quiz02/song.jsp">
 		<div class="input-group">
 			<input type="text" name="title" class="form-control col-6"
 				name="search">

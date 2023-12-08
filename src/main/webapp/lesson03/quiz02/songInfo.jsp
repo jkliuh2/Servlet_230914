@@ -82,53 +82,91 @@
 %>
 
 <%
-	// request para
-	String title = request.getParameter("title");
-
-	Map<String, Object> selectMusic = new HashMap<>();
-	Iterator<Map<String, Object>> iter = musicList.iterator();
-	while (iter.hasNext()) {
-		Map<String, Object> songInfo = iter.next();
-		if (songInfo.get("title").equals(title)) {
-			selectMusic = songInfo;
-			break;
+	Map<String, Object> selectMusic = null; // 출력할 노래(아직 비어있음)
+	
+	// 1. <a>태그로 들어왔을 때 => id
+	if (request.getParameter("id") != null) { // id가 null이 아닐 때만 request para를 받겠다.
+		// => 그냥 막 받으면 오류 생긴다.
+		
+		int id = Integer.parseInt(request.getParameter("id")); // 검색한 노래의 id => <a>로 보내는 것
+		// 어지간하면 id로 찾는 것이 좋다(DB에서 id 검색은 속도가 빠름)
+		
+		Iterator<Map<String, Object>> iter = musicList.iterator();
+		while (iter.hasNext()) {
+			Map<String, Object> songInfo = iter.next();
+			if ((int)songInfo.get("id") == id) { // id가 일치
+				selectMusic = songInfo; // 출력할 노래에 등록.
+				break; // 반복문 끝.
+			}
+		}
+	}
+	
+	// 2. header에서 form태그 검색으로 들어왔을 때 => title
+	if (request.getParameter("title") != null) {
+		String title = request.getParameter("title"); // form태그로 넘어온 것.
+		
+		for (Map<String, Object> music : musicList) {
+			if (music.get("title").equals(title)) {
+				selectMusic = music	; // 출력할 노래에 등록.
+				break;
+			}
 		}
 	}
 %>   
  
 <%-- 곡 정보 영역 --%>
 <div>
+	<%
+	// 3. selectMusic이 null인 경우. 잘못 검색할 경우.
+	if (selectMusic == null) {
+	%>
+	<h4>곡 정보가 없습니다.</h4>
+	<%	
+	} else { // 곡 정보가 있을 때 아래의 코드 출력
+	%>
+	
 	<h4>곡 정보</h4>
-	<div class="d-flex">
+	<div class="d-flex border border-success p-3">
 		<div>
-			<img src="<%= selectMusic.get("thumbnail") %>" alt="썸네일 이미지" width="200">
+			<img 
+				src="<%= selectMusic.get("thumbnail") %>" 
+				alt="썸네일 이미지" width="200">
 		</div>
 		<div class="ml-3">
-			<h1><%= selectMusic.get("title") %></h1>
-			<p class="text-success font-weight-bold"><%= selectMusic.get("singer") %></p>
-			<div class="d-flex text-secondary">
+			<div class="display-4"><%= selectMusic.get("title") %></div>
+			<div class="text-success font-weight-bold"><%= selectMusic.get("singer") %></div>
+			<div class="d-flex music-info mt-3">
 				<div>
-					앨범<br>
-					재생시간<br>
-					작곡가<br>
-					작사가
+					<div>앨범</div>
+					<div>재생시간</div>
+					<div>작곡가</div>
+					<div>작사가</div>
 				</div>
 				<div class="ml-3">
-					<%= selectMusic.get("album") %><br>
+					<div><%= selectMusic.get("album") %></div>
+					<div>
 					<%
 						int time = (int)selectMusic.get("time");
-						out.print((time / 60) + " : " + (time % 60));
-					%><br>
-					<%= selectMusic.get("composer") %><br>
-					<%= selectMusic.get("lyricist") %>
+						if (time % 60 >= 10) {
+							out.print((time / 60) + " : " + (time % 60));
+						} else {
+							out.print((time / 60) + " : 0" + (time % 60));
+						}
+					%>
+					</div>
+					<div><%= selectMusic.get("composer") %></div>
+					<div><%= selectMusic.get("lyricist") %></div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<%
+	} // 3. else문의 끝
+	%>
 </div>
 <%-- 가사 영역 --%>
-<div class="mt-3">
+<div class="mt-5">
 	<h4>가사</h4>
 	<hr>
-	<h5>가사 정보 없음</h5>
+	<b>가사 정보 없음</b>
 </div>

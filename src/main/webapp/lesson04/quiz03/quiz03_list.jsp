@@ -20,23 +20,33 @@
 	crossorigin="anonymous"></script>
 </head>
 <style>
-	#wrap {height:1000px;}
-	header {height:100px; background-color:orange;}
-	nav {height:80px; background-color:orange;}
+	header {height:100px; background-color:#E97341;}
+	nav {height:80px; background-color:#E97341;}
 	section {min-height:200px;}
 	footer {height:100px;}
+	
+	a {text-decoration:none;}
+	a:hover {text-decoration:none;}
+	.menu-text {font-weight:bold; color:white;}
+	.menu-text:hover {color:#999;}
+	
+	#goods-parent-box {gap:20px 15px; margin-top:20px}
+	#goods-box {border:solid; border-color:#E97341;}
+	
+	.carrot {color:#E97341;}
+	#price {color:#999; font-size:small;}
 </style>
 <body>
 	<div id="wrap" class="container">
 		<header class="d-flex justify-content-center align-items-center">
-			<h1>HONG당무 마켓</h1>
+			<jsp:include page="header.jsp" />
 		</header>
-		<nav></nav>
-		<section></section>
+		<nav class="d-flex align-items-center">
+			<jsp:include page="menu.jsp" />
+		</nav>
+		<jsp:include page="section_list.jsp" />
 		<footer class="d-flex justify-content-center align-items-center">
-			<div class="text-secondary">
-				Copyright 2019. HONG All Rights Reserved.
-			</div>
+			<jsp:include page="footer.jsp" />
 		</footer>
 	</div>
 </body>

@@ -1,7 +1,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.test.common.MysqlService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,16 +22,17 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-<%
+	<%
 	// DB 연결
 	MysqlService ms = MysqlService.getInstance();
 	ms.connect();
-	
+
 	// select DB
 	String query = "select * from `bookmark` order by `id` desc";
 	ResultSet res = ms.select(query);
-%>
+	%>
 	<div class="container">
+		<div class="display-4 text-center mb-3">즐겨찾기 목록</div>
 		<table class="table text-center">
 			<thead>
 				<tr>
@@ -41,30 +42,29 @@
 				</tr>
 			</thead>
 			<tbody>
-			<%
+				<%
 				while (res.next()) {
-					
-			%>
+				%>
 				<tr>
-					<th><%= res.getString("name") %></th>
+					<th><%=res.getString("name")%></th>
 					<td>
-					<a href="<%= res.getString("url") %>">
-						<%= res.getString("url") %>
-					</a>
+						<a href="<%=res.getString("url")%>"> <%=res.getString("url")%></a>
 					</td>
 					<td>
-						<a href="/lesson04/quiz02_delete?id=<%= res.getInt("id") %>">삭제</a>
+						<a href="/lesson04/quiz02_delete?id=<%=res.getInt("id")%>">
+						<button class="btn btn-danger">삭제</button>
+						</a>
 					</td>
 				</tr>
-			<%
+				<%
 				} // while문 끝
-			%>
+				%>
 			</tbody>
 		</table>
 	</div>
-<%
+	<%
 	// DB 연결 해제
 	ms.disconnect();
-%>
+	%>
 </body>
 </html>

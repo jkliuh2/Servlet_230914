@@ -47,28 +47,28 @@
 	<script>
 		$(document).ready(function () {
 			// form 버튼이 click 됬을 때 유효성 검사 하기(null 비허용 애들)
-			$("#sumbit").on("click", function() {
-				alert("확인 알람");
+			$("#btn-submit").on("click", function() {
+				//alert("확인 알람");
 				
 				// select 0번 제외(아이디 선택 칸)
 				let id = $("input[name=sellerId]").val();
 				if (id == 0) {
 					alert("아이디를 선택하세요.");
-					return;
+					return false;
 				}
 				
 				// 제목 null 비허용
 				let title = $("input[name=title]").val();
 				if (title == "") {
 					alert("제목을 입력하세요.");
-					return;
+					return false;
 				}
 				
 				// 가격 null 비허용
 				let price = $("input[name=price]").val();
 				if (price == "") {
 					alert("가격을 입력하세요.");
-					return;
+					return false;
 				}
 				
 				alert(

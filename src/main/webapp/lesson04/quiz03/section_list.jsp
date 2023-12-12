@@ -29,7 +29,7 @@
 				out.print(url);
 			}
 			%>"
-			alt="제품사진" width="340" height="200">
+			alt="제품사진" width="330" height="200">
 		<div class="font-weight-bold"><%=res.getString("title")%></div>
 		<div id="price" class="mt-2">
 			<%=res.getString("price")%>원

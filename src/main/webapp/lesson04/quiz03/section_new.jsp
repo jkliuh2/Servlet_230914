@@ -72,7 +72,7 @@
 			
 			<%-- submit 버튼 --%>
 			<div>
-				<input id="submit" type="submit" value="저장" class="btn btn-light form-control">
+				<input id="btn-submit" type="submit" value="저장" class="btn btn-light form-control">
 			</div>
 		</form>
 	</div>
